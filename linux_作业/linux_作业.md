@@ -38,7 +38,9 @@ $ ls -l ~ | grep *.py > py.txt
 $ less py.txt
 ```
 例：
+
 <img src="./5.1.png" />
+
 <img src="./5.2.png" />
 
 6.使用ls查看根目录 并且每行显示3个信息。
