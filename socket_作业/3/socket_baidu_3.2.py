@@ -28,8 +28,8 @@ while True:
     else:
         break
 
-f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/baidu.txt', mode='w')
-f.write(str(d))
+f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/baidu.txt', mode='wb')
+f.write(d)
 f.close()
 
 ss.close()

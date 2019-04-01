@@ -11,8 +11,9 @@ server_addr = ('127.0.0.1', 443)
 client.connect(server_addr)
 while 1:
     msg = client.recv(1460)
-    f = open(file=msg, mode='r')
+    f = open(file=msg, mode='rb')
     data = f.read()
+    f.close()
     if data:
         client.send(data.encode())
     else:

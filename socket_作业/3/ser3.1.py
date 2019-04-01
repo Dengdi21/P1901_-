@@ -21,8 +21,8 @@ conn.send(add_png.encode())
 while 1:
     msg = str(conn.recv(1460))
     if msg:
-        f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/1_1.png', mode='w')
-        f.write(msg)
+        f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/1_1.png', mode='wb')
+        f.write(msg.encode("utf-8"))
         f.close()
     else:
         break
