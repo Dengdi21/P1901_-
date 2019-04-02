@@ -25,4 +25,4 @@ while 1:
     except Exception:
         break
 
-ss.close()
+ss.close
