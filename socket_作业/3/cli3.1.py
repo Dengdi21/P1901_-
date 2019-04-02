@@ -3,21 +3,20 @@
 
 # 客户端端代码
 
+import os
 import socket
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+dir_name = os.path.dirname(__file__)
 
-server_addr = ('127.0.0.1', 443)
-client.connect(server_addr)
-while 1:
-    msg = client.recv(1460)
-    f = open(file=msg, mode='rb')
-    data = f.read()
-    f.close()
-    if data:
-        client.send(data.encode())
-    else:
-        break
+jpg_name = os.path.join(dir_name, '1.png')
 
-client.close()
-print('客户端已关闭')
+with open(jpg_name, 'rb') as f:
+    b_file = f.read()
+
+ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+addr = ('127.0.0.1', 60000)
+ss.connect(addr)
+ss.sendall(b_file)
+
+ss.close()

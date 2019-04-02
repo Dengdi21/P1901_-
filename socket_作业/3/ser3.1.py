@@ -4,27 +4,31 @@
 # 服务端代码
 
 import socket
+import os
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+dir_name = os.path.dirname(__file__)
 
-server_addr = ('119.75.217.109', 443)
+jpg_name = os.path.join(dir_name, '1_copy.png')
 
-server.bind(server_addr)
-print('服务器已开启')
+ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server.listen(5)
+addr = ('127.0.0.1', 60000)
+ss.bind(addr)
 
-conn, conn_addr = server.accept()
+ss.listen(5)
+conn, addr = ss.accept()
 
-add_png = '/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/1.png'
-conn.send(add_png.encode())
+b_file = b""
+
 while 1:
-    msg = str(conn.recv(1460))
-    if msg:
-        f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/1_1.png', mode='wb')
-        f.write(msg.encode("utf-8"))
-        f.close()
-    else:
+    msg = conn.recv(65535)
+    if not msg:
         break
+    b_file += msg
 
-print('服务端已关闭')
+with open(jpg_name, 'wb') as f:
+    f.write(b_file)
+
+conn.close()
+ss.close()
+

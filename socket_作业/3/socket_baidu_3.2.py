@@ -1,35 +1,37 @@
 # 2. 写一个socket用来请求百度网页,并把请求下来的报文体部分保存
 
 import socket
-from urllib.parse import urlparse
 
-ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-url1 = urlparse("https://www.baidu.com")
+ss = socket.socket()
+addr = ('123.206.1.112',80)
+ss.connect(addr)
 
-host = url1.netloc
-path = url1.path
+headers = b"GET /114633/ HTTP/1.1\r\nHost: blog.jobbole.com\r\nConnection: closed\r\n" \
+          b"Cache-Control: max-age=0\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: " \
+          b"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) " \
+          b"Chrome/73.0.3683.86 Safari/537.36\r\nAccept: text/html,application/xhtml+xml," \
+          b"application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\n\r\n"
 
-if path == "":
-    path = "/"
-
-ss.connect((host, 80))
-
-data = "GET {} HTTP/1.1\r\nHost:{}\r\nConnection:close\r\nUser-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6)" \
-       " AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\r\n\r\n".format(
-    path, host).encode('utf8')
-
-ss .send(data)
-res = b''
-
-while True:
-    d = ss.recv(1460)
-    if d:
-        res += d
-    else:
+ss.send(headers)
+print('send ok')
+res = b""
+while 1:
+    msg = ss.recv(65535)
+    print('recv ok')
+    if not msg:
         break
+    res += msg
 
-f = open(file='/Users/chunmu/Desktop/Python_P1901/homework/socket_作业/baidu.txt', mode='wb')
-f.write(d)
-f.close()
+# print(res.decode())
+res = res.decode()
+res_list = res.split('\r\n\r\n',1)
 
-ss.close()
+html = res_list[1]
+
+import os
+dir_name = os.path.dirname(__file__)
+# jpg_name = dir_name + '/' + '3_1.jpeg'
+
+jpg_name = os.path.join(dir_name,'baidu.html')
+with open(jpg_name,'w') as f:
+    f.write(html)
