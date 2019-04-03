@@ -3,26 +3,32 @@
 # 客户端代码,每个客户端代码相同。
 
 import socket
-
+from threading import Thread
 
 ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-addr = ('127.0.0.1', 60020)
+addr = ('127.0.0.1', 60024)
 ss.connect(addr)
 print('已连接服务器，可以开始聊天啦')
 
-while 1:
-    try:
-        print('等待输入：', end='')
-        msg = input()
-        ss.send(msg.encode())
-
+def rcv_cli():
+    while 1:
         rcv1 = ss.recv(1024)
         if rcv1:
             print(rcv1.decode('utf-8'))
         else:
             continue
 
-    except Exception:
-        break
+def send_cli():
+    while 1:
+        msg = input('等待输入：')
+        ss.send(msg.encode())
 
-ss.close
+
+t1 = Thread(target=send_cli)
+t2 = Thread(target=rcv_cli)
+
+t1.start()
+t2.start()
+
+t2.join()
+t1.join()
