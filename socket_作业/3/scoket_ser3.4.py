@@ -20,10 +20,11 @@ def pel_chat_server():
 
 
 def wechat(conn, connaddr):
-    msg = conn.recv(65535)
-    print('{}发来消息：{}'.format(connaddr, msg))
-    re_msg = '{}发来消息：{}'.format(connaddr, msg)
-    conn.send(re_msg.encode())
+    while 1:
+        msg = conn.recv(65535)
+        print('{}发来消息：{}'.format(connaddr, msg))
+        re_msg = '{}发来消息：{}'.format(connaddr, msg)
+        conn.send(re_msg.encode())
 
 
 

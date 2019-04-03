@@ -17,10 +17,11 @@ def baidu_server():
 
 
 def server_answer(conn, connaddr):
-    print('{}已连接服务器'.format(connaddr))
-    conn.send('hello world')
-    msg = conn.recv(1024)
-    print(msg)
+    while 1:
+        print('{}已连接服务器'.format(connaddr))
+        conn.send('hello world')
+        msg = conn.recv(1024)
+        print(msg)
 
 
 def main():
