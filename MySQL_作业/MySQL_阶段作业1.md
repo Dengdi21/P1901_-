@@ -111,7 +111,7 @@ SELECT Department,count(*) FROM student GROUP BY Department;
 10.查询李四的考试科目（c_name）和考试成绩（grade）。
 
 ```
-SELECT * FROM student AS a JOIN score AS b ON a.ID=b.Stu_id 
+SELECT b.c_name,b.grade FROM student AS a JOIN score AS b ON a.ID=b.Stu_id 
 WHERE Name='李四'; 
 ```
 执行结果如下：
