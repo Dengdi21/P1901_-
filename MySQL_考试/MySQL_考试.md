@@ -2,7 +2,7 @@
 1.
 
 ```
-select b.teat_id from train as a join train as b where (b.teat_id - 1) = a.teat_id and a.is_free = 1 and b.is_free = 1
+SELECT DISTINCT a.teat_id from train a JOIN train b ON abs(a.teat_id-b.teat_id) = 1 WHERE a.is_free=1 AND b.is_free=1 ORDER BY a.teat_id;
 ```
 预览：
 <img src="./t1.png" />
@@ -40,12 +40,11 @@ where company.name = 'RED') ;
 4.
 
 ```
-
+select distinct n1.id,if(n1.p_id is null,'Root',if(n2.id is null,'Leaf','Inner')) as node from node n1 left join node n2 on n1.id=n2.p_id
 ```
 
 5.
 
 ```
-select a.name,count(a.name) as total from `Candidate` as a join `Vote` as b on a.id = b.CandidateId group by a.name 
+select name from candidate where id =(select candidateid as id from vote group by candidateid ORDER BY  count(*) desc limit 0,1 )
 ```
-<img src="./t5.png" />
