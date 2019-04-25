@@ -1,0 +1,34 @@
+/*3.*/
+#s1{
+    color:red;font-weight: bold;
+}
+
+/*4.*/
+#s3{
+    border: 1px dashed black;
+}
+
+/*6*/
+#s2 p{
+    background-color: green;
+}
+
+/*7.*/
+.d1 {
+    font-style: italic;
+    color:yellow;
+}
+
+/*9.*/
+#p1:hover{
+    color: crimson;
+}
+
+/*10.*/
+.d2 div{
+    display: inline-block;
+}
+/*11.*/
+form{
+    border: 1px solid red;
+}

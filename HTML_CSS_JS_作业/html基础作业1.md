@@ -3,100 +3,26 @@
 1.使用html列表完成下面图片。
 <img src="./html基础作业图片/1.png">
 
-答：代码如下：
+解：
 
-```
-<body>
-<strong>
-    <ol>
-        <li>
-            <ul type="circle">
-                <li>Python的函数参数传递</li>
-                <li>Python中的元类(metaclass)</li>
-                <li>@staticmethod和@classmethod</li>
-                <li>类变量和实例变量</li>
-            </ul>
-        </li>
-        <li>
-            <ol>
-                <li>Pytion自身</li>
-                <li>字典推导式</li>
-                <li>Python中单下划线和双下划线</li>
-                <li>字符串格式化：\*和.format</li>
-            </ol>
-        </li>
-        <li>
-            <dl>
-                <dl>编程语言
-                    <dd>python</dd>
-                    <dd>c</dd>
-                    <dd>go</dd>
-                    <dd>...</dd>
-                </dl>
-                <dl>编辑语言
-                    <dd>html</dd>
-                    <dd>xml</dd>
-                    <dd>...</dd>
-                </dl>
-                <dl>自然语言
-                    <dd>sql</dd>
-                    <dd>nlk</dd>
-                    <dd>...</dd>
-                </dl>
-            </dl>
-        </li>
-    </ol>
-</strong>
-</body>
-```
-预览连接：
-<a href="1_1.html">1_1.html</a>
+代码链接：
+<a href="1_1.html">第一题作业1_1.html</a>
 
 2.使用html完成下面图片。
 <img src="./html基础作业图片/2.png">
 
-```
-<body>
-    <div>
-        <
-        <a href="1">1</a>
-        <a href="2">2</a>
-        <a href="3">3</a>
-        <a href="4">4</a>
-        <a href="5">5</a>
-        <a href="6">6</a>
-        <a href="7">7</a>
-        >
-    </div>
-</body>
-```
+解：
 
-作业连接：
-<a href="1_2.html">1_2.html</a>
+代码连接：
+<a href="1_2.html">第二题作业1_2.html</a>
 
 3.完成下面的要求。
 <img src="./html基础作业图片/3.png">
 
-答：index.html代码如下:
+答：
 
-```
-<body>
-    <div>
-        <a href="./html/home.html">html</a>&nbsp&nbsp
-        <a href="./img/border-style.png" target=“_blank”>img</a>&nbsp&nbsp
-        <a href="./doc/readme.txt" target=“_blank1”>doc</a>
-    </div>
-
-    <div>
-        <a href="./html/home.html" target="iframe1">html_iframe</a>&nbsp&nbsp
-        <a href="./img/border-style.png" target="iframe1">img_iframe</a>&nbsp&nbsp
-        <a href="./doc/readme.txt" target="iframe1">doc_iframe</a>
-    </div>
-    <iframe name="iframe1" style="width: 100%;height: 560px;"></iframe>
-</body>
-```
-作业连接：
-<a href="./1_3/index.html">index.html</a>
+代码连接：
+<a href="./1_3/index.html">第三题作业index.html</a>
 
 
 4.简答什么是html语义化。
