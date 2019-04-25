@@ -16,3 +16,4 @@
 ## 前端基础
 1. <a href= "./HTML_CSS_JS_作业/html基础作业1.md"> HTML_基础作业</a>
 2. <a href= "./HTML_CSS_JS_作业/html表单表格作业.md"> HTML_表单表格作业.md</a>
+3. <a href= "./HTML_CSS_JS_作业/CSS基础部分作业.md"> CSS_基础部分作业.md</a>
